@@ -42,4 +42,12 @@ function calculate(operation) {
     }
 
     document.getElementById('result').value = result;
+
+    // ОТПРАВКА СОБЫТИЯ В GOOGLE ANALYTICS
+    gtag('event', 'button_click', {
+        'event_category': 'Калькулятор',
+        'event_label': operation,
+        'value1': value1,
+        'value2': value2
+    });
 }
