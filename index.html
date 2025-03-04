@@ -3,11 +3,18 @@
 <head>
     <title>Калькулятор</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-04HXEV0Y09"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-04HXEV0Y09');
+    </script>
 </head>
 <body>
     <div id="calculator">
-        <input type="text" id="value1" placeholder="Введите число"/>
-        <input type="text" id="value2" placeholder="Введите число"/>
+        <input type="text" id="value1" placeholder="Введите число" />
+        <input type="text" id="value2" placeholder="Введите число" />
         <button onclick="calculate('+')">+</button>
         <button onclick="calculate('-')">-</button>
         <button onclick="calculate('*')">*</button>
@@ -15,7 +22,7 @@
         <button onclick="calculate('sqrt')">√</button>
         <button onclick="calculate('pow')">Возведение в степень</button>
         <button onclick="calculate('mod')">Модуль</button>
-        <input type="text" id="result" placeholder="Результат" readonly/>
+        <input type="text" id="result" placeholder="Результат" readonly />
     </div>
     <script src="script.js"></script>
 </body>
