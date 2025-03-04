@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333; 
+}
+
+#calculator {
+    text-align: center;
+    padding: 20px;
+    background-color: #444; 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    color: white; 
+}
+
+#calculator input, #calculator button {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #555; 
+    color: rgba(255, 255, 255, 0.281); 
+}
+
+#calculator button {
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+#calculator button:hover {
+    background-color: #666; 
+}
