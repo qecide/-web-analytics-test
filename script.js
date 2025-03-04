@@ -19,6 +19,16 @@ document.querySelectorAll("button").forEach(button => {
     });
 });
 
+// Отслеживание начала ввода чисел (начало взаимодействия)
+document.querySelectorAll("#value1, #value2").forEach(input => {
+    input.addEventListener("focus", function() {
+        gtag('event', 'begin_checkout', {
+            'event_category': 'Калькулятор',
+            'event_label': 'Начало ввода данных'
+        });
+    });
+});
+
 // Отправка события при расчете результата
 function calculate(operation) {
     var value1 = document.getElementById('value1').value;
@@ -48,6 +58,15 @@ function calculate(operation) {
 
     // Отправка события "result_calculated" в GA4
     gtag('event', 'result_calculated', {
+        'event_category': 'Калькулятор',
+        'operation': operation,
+        'value1': value1,
+        'value2': value2,
+        'result': result
+    });
+
+    // Отправка события "generate_lead" в GA4
+    gtag('event', 'generate_lead', {
         'event_category': 'Калькулятор',
         'operation': operation,
         'value1': value1,
