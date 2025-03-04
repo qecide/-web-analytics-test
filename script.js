@@ -51,3 +51,14 @@ function calculate(operation) {
         'value2': value2
     });
 }
+
+// ДОБАВЛЕНИЕ ОТСЛЕЖИВАНИЯ СОБЫТИЙ ДЛЯ ВСЕХ КНОПОК
+
+document.querySelectorAll("button").forEach(button => {
+    button.addEventListener("click", function() {
+        gtag('event', 'button_click', {
+            'event_category': 'Калькулятор',
+            'event_label': this.innerText
+        });
+    });
+});
