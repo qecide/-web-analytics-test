@@ -1,27 +1,7 @@
-// Отслеживание ввода чисел
-document.querySelectorAll("#value1, #value2").forEach(input => {
-    input.addEventListener("input", function() {
-        gtag('event', 'number_input', {
-            'event_category': 'Калькулятор',
-            'event_label': this.id,
-            'value': this.value
-        });
-    });
-});
-
-// Отслеживание выбора математической операции
-document.querySelectorAll("button").forEach(button => {
-    button.addEventListener("click", function() {
-        gtag('event', 'operation_selected', {
-            'event_category': 'Калькулятор',
-            'event_label': this.innerText
-        });
-    });
-});
-
-// Отслеживание начала ввода чисел (начало взаимодействия)
+// Отслеживание начала ввода (должно отправлять `begin_checkout`)
 document.querySelectorAll("#value1, #value2").forEach(input => {
     input.addEventListener("focus", function() {
+        console.log("Отправляется begin_checkout"); // Проверка
         gtag('event', 'begin_checkout', {
             'event_category': 'Калькулятор',
             'event_label': 'Начало ввода данных'
@@ -29,7 +9,7 @@ document.querySelectorAll("#value1, #value2").forEach(input => {
     });
 });
 
-// Отправка события при расчете результата
+// Отправка события "generate_lead" при расчете результата
 function calculate(operation) {
     var value1 = document.getElementById('value1').value;
     var value2 = document.getElementById('value2').value;
@@ -56,8 +36,11 @@ function calculate(operation) {
 
     document.getElementById('result').value = result;
 
-    // Отправка события "result_calculated" в GA4
-    gtag('event', 'result_calculated', {
+    // Логирование в консоль
+    console.log("Отправляется generate_lead");
+
+    // Отправка события "generate_lead" в GA4
+    gtag('event', 'generate_lead', {
         'event_category': 'Калькулятор',
         'operation': operation,
         'value1': value1,
@@ -65,8 +48,8 @@ function calculate(operation) {
         'result': result
     });
 
-    // Отправка события "generate_lead" в GA4
-    gtag('event', 'generate_lead', {
+    // Отправка события "result_calculated" в GA4
+    gtag('event', 'result_calculated', {
         'event_category': 'Калькулятор',
         'operation': operation,
         'value1': value1,
